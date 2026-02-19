@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Archives
+*.zip
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if added later)
+node_modules/

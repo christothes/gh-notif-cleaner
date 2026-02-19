@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      padding: 16px;
+      margin: 0;
+      color: #24292f;
+    }
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 .icon { font-size: 18px; }
+    .description {
+      color: #57606a;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .options {
+      margin-bottom: 16px;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 12px;
+      background: #f6f8fa;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .option:last-child { margin-bottom: 0; }
+    .option label { cursor: pointer; }
+    .legend {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-merged { background: #ab7df8; }
+    .dot-closed { background: #f85149; }
+    .dot-draft { background: #919aa1; }
+    .dot-open { background: #3fb950; }
+    button#run {
+      width: 100%;
+      padding: 8px 16px;
+      background: #2da44e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button#run:hover { background: #2c974b; }
+    button#run:disabled {
+      background: #94d3a2;
+      cursor: not-allowed;
+    }
+    #status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: none;
+      line-height: 1.4;
+    }
+    #status.running {
+      display: block;
+      background: #ddf4ff;
+      color: #0969da;
+    }
+    #status.done {
+      display: block;
+      background: #dcffe4;
+      color: #116329;
+    }
+    #status.error {
+      display: block;
+      background: #ffebe9;
+      color: #cf222e;
+    }
+    #status.warning {
+      display: block;
+      background: #fff8c5;
+      color: #9a6700;
+    }
+  </style>
+</head>
+<body>
+  <h2><span class="icon">🧹</span> Notification Cleaner</h2>
+  <p class="description">
+    Select which non-open notification types to mark as <strong>Done</strong> on the current GitHub notifications page.
+  </p>
+  <div class="options">
+    <div class="option">
+      <input type="checkbox" id="merged" checked>
+      <label for="merged"><span class="legend"><span class="dot dot-merged"></span> Merged (purple)</span></label>
+    </div>
+    <div class="option">
+      <input type="checkbox" id="closed" checked>
+      <label for="closed"><span class="legend"><span class="dot dot-closed"></span> Closed (red)</span></label>
+    </div>
+    <div class="option">
+      <input type="checkbox" id="draft" checked>
+      <label for="draft"><span class="legend"><span class="dot dot-draft"></span> Draft (gray)</span></label>
+    </div>
+  </div>
+  <button id="run">🚀 Clean Notifications</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
