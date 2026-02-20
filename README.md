@@ -38,3 +38,7 @@ Open (green) notifications are always left untouched.
 | `tabs` | Navigate between notification pages |
 
 The extension only runs when you click the button, only operates on `github.com/notifications` pages, and does not collect or transmit any data.
+
+## License
+
+[MIT](LICENSE)
